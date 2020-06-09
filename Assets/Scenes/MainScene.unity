@@ -559,15 +559,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a823375b156408fa1b3a57dd6eab237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceElements:
+  resourceUiElements:
   - {fileID: 11400000, guid: ed7233b451391ab46b3bb7023fef0676, type: 2}
   - {fileID: 11400000, guid: 101b3265f3b972049b9cc5079a88fbe2, type: 2}
   - {fileID: 11400000, guid: bae67bf0a1ca91e488f6444b06f74a00, type: 2}
   resourcePanelCanvas: {fileID: 157401217}
-  resourceUiDisplayElementPrefab: {fileID: 8435786452929213875, guid: f207f489c3982a1418b09714317db935,
+  resourceUiElementPrefab: {fileID: 8435786452929213875, guid: f207f489c3982a1418b09714317db935,
     type: 3}
   player: {fileID: 886134128}
-  resourcePrefab: {fileID: 770583563301567614, guid: 4b6e388822c38f248814a60ddde9196f,
+  resourceItemPrefab: {fileID: 770583563301567614, guid: 4b6e388822c38f248814a60ddde9196f,
     type: 3}
   mainCamera: {fileID: 519420031}
 --- !u!1 &2060551981
