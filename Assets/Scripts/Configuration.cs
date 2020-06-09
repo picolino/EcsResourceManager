@@ -1,6 +1,6 @@
 ﻿#region Usings
 
-using Behaviours;
+using Definitions;
 using UnityEngine;
 
 #endregion
@@ -8,7 +8,7 @@ using UnityEngine;
 public class Configuration : MonoBehaviour
 {
     [Header("Resource definitions")] 
-    [SerializeField] public ResourceUiElement[] resourceUiElements;
+    [SerializeField] public ResourceUiElementDefinition[] resourceUiElementDefinitions;
 
     [Header("Dependencies")] 
     

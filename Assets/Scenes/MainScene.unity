@@ -559,7 +559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a823375b156408fa1b3a57dd6eab237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceUiElements:
+  resourceUiElementDefinitions:
   - {fileID: 11400000, guid: ed7233b451391ab46b3bb7023fef0676, type: 2}
   - {fileID: 11400000, guid: 101b3265f3b972049b9cc5079a88fbe2, type: 2}
   - {fileID: 11400000, guid: bae67bf0a1ca91e488f6444b06f74a00, type: 2}

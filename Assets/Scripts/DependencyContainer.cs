@@ -1,8 +1,7 @@
 ﻿#region Usings
 
 using System;
-using System.Collections.Generic;
-using Behaviours;
+using System.Linq;
 using Server;
 
 #endregion
@@ -11,11 +10,11 @@ public class DependencyContainer : IDisposable
 {
     public Random Random { get; set; }
     public IServer Server { get; set; }
-    public int[] ResourceIds { get; set; }
-    public Dictionary<int, IResourceUiElementBehaviour> ResourceUiDisplayElements { get; set; }
     public Configuration Configuration { get; set; }
     public ServerStubConfiguration ServerStubConfiguration { get; set; }
-
+    
+    public int[] ResourceIds { get; set; }
+    
     public void Dispose()
     {
         Server?.Dispose();

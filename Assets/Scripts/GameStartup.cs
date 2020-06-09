@@ -1,5 +1,6 @@
 ﻿#region Usings
 
+using System.Linq;
 using Systems;
 using Components;
 using Leopotam.Ecs;
@@ -27,17 +28,17 @@ public class GameStartup : MonoBehaviour
                               {
                                   Random = new Random(),
                                   Configuration = configuration,
-                                  ServerStubConfiguration = serverStubConfiguration
+                                  ServerStubConfiguration = serverStubConfiguration,
+                                  ResourceIds = configuration.resourceUiElementDefinitions.Select(o => o.uid).ToArray()
                               };
 
-        systems.Add(new InitializeResourcesProcessing(dependencyContainer))
+        systems.Add(new InitializeResourcesProcessing(world, dependencyContainer))
                .Add(new InitializeServerProcessing(dependencyContainer))
                .Add(new UserInputProcessing(configuration, world))
                .Add(new PlayerMovementProcessing(configuration))
-               .Add(new GatherResourceItemsProcessing(world))
                .Add(new ResourceSpawnProcessing(world, dependencyContainer))
                .Add(new ServerInputProcessing(world, dependencyContainer))
-               .Add(new UpdateResourcesUiProcessing(dependencyContainer))
+               .Add(new UpdateResourcesUiViewProcessing(dependencyContainer))
                .OneFrame<ResourceAmountChangedEventComponent>()
                .Inject(dependencyContainer);
     }

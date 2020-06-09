@@ -1,5 +1,6 @@
 ﻿#region Usings
 
+using System.Linq;
 using Leopotam.Ecs;
 using Server;
 
@@ -18,7 +19,9 @@ namespace Systems
 
         public void Init()
         {
-            dependencyContainer.Server = new ServerStub(dependencyContainer.ServerStubConfiguration, dependencyContainer.Random, dependencyContainer.ResourceIds);
+            dependencyContainer.Server = new ServerStub(dependencyContainer.ServerStubConfiguration, 
+                                                        dependencyContainer.Random, 
+                                                        dependencyContainer.ResourceIds);
         }
     }
 }

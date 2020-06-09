@@ -31,13 +31,17 @@ namespace Systems
                 var resourceItemGameObject = Object.Instantiate(dependencyContainer.Configuration.resourceItemPrefab,
                                                                 new Vector3(dependencyContainer.Random.Next(-3, 4), dependencyContainer.Random.Next(-3, 4), 0),
                                                                 Quaternion.identity);
-                var resourceItemBehaviour = resourceItemGameObject.GetComponent<ResourceItemBehaviourBehaviour>();
+                var resourceItemBehaviour = resourceItemGameObject.GetComponent<ResourceItemBehaviour>();
 
+                var uid = dependencyContainer.ResourceIds[dependencyContainer.Random.Next(dependencyContainer.ResourceIds.Length)];
+                var amount = dependencyContainer.Random.Next(-1, 2);
+                
                 var entity = world.NewEntity();
                 ref var resourceItemComponent = ref entity.Get<ResourceItemComponent>();
-                resourceItemComponent.uid = dependencyContainer.ResourceIds[dependencyContainer.Random.Next(dependencyContainer.ResourceIds.Length)];
-                resourceItemComponent.amount = dependencyContainer.Random.Next(-1, 2);
-                resourceItemComponent.resourceItemBehaviour = resourceItemBehaviour;
+                resourceItemComponent.uid = uid;
+                resourceItemComponent.amount = amount;
+                
+                resourceItemBehaviour.Init(world, ref resourceItemComponent, ref entity);
             }
         }
     }

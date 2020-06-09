@@ -4,10 +4,10 @@ using UnityEngine;
 
 #endregion
 
-namespace Behaviours
+namespace Definitions
 {
     [CreateAssetMenu(fileName = "New Resource", menuName = "Resource definition", order = 51)]
-    public class ResourceUiElement : ScriptableObject
+    public class ResourceUiElementDefinition : ScriptableObject
     {
         [SerializeField] public int uid;
         [SerializeField] public double amount;

@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 8435786452929213874}
   - component: {fileID: 6202269224251398386}
   m_Layer: 5
-  m_Name: ResourceDisplayElement
+  m_Name: ResourceUiElement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -129,7 +129,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amountDisplayText: {fileID: 8435786452706078045}
   iconDisplayImage: {fileID: 8435786454462904533}
-  resource: {fileID: 0}
 --- !u!1 &8435786454462904531
 GameObject:
   m_ObjectHideFlags: 0

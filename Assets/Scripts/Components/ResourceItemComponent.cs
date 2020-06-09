@@ -10,6 +10,5 @@ namespace Components
     {
         public int uid;
         public double amount;
-        public IResourceItemBehaviour resourceItemBehaviour;
     }
 }
