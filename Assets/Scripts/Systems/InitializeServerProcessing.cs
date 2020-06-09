@@ -7,11 +7,11 @@ using Server;
 
 namespace Systems
 {
-    public class InitializeServerSystem : IEcsInitSystem
+    public class InitializeServerProcessing : IEcsInitSystem
     {
         private readonly DependencyContainer dependencyContainer;
 
-        public InitializeServerSystem(DependencyContainer dependencyContainer)
+        public InitializeServerProcessing(DependencyContainer dependencyContainer)
         {
             this.dependencyContainer = dependencyContainer;
         }

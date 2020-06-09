@@ -7,12 +7,12 @@ using UnityEngine.UI;
 
 namespace Behaviours
 {
-    public class ResourceUIDisplayElementBehaviour : MonoBehaviour, IResourceUIDisplayElement
+    public class ResourceUiElementBehaviour : MonoBehaviour, IResourceUiElement
     {
         [SerializeField] private Text amountDisplayText;
         [SerializeField] private Image iconDisplayImage;
 
-        [SerializeField] public ResourceUIElement resourceUi;
+        [SerializeField] public ResourceUiElement resourceUi;
 
         private void Start()
         {

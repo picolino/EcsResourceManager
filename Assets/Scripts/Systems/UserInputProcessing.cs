@@ -6,14 +6,14 @@ using UnityEngine;
 
 namespace Systems
 {
-    public class UserInputProcessingSystem : IEcsRunSystem
+    public class UserInputProcessing : IEcsRunSystem
     {
         [PublicAPI(PublicAPIComment.DI)] private EcsFilter<PointToMoveComponent> filter;
         
         private readonly Configuration configuration;
         private readonly EcsWorld world;
 
-        public UserInputProcessingSystem(Configuration configuration, EcsWorld world)
+        public UserInputProcessing(Configuration configuration, EcsWorld world)
         {
             this.configuration = configuration;
             this.world = world;

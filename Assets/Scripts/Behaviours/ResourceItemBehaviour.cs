@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Behaviours
 {
-    public class ResourceGameplayElementBehaviour : MonoBehaviour, IResourceGameplayElement
+    public class ResourceItemBehaviour : MonoBehaviour, IResourceItem
     {
         public bool IsTriggered { get; private set; }
         

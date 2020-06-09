@@ -8,14 +8,14 @@ using Leopotam.Ecs;
 
 namespace Systems
 {
-    public class ServerListeningSystem : IEcsInitSystem, IEcsRunSystem, IEcsDestroySystem
+    public class ServerListenProcessing : IEcsInitSystem, IEcsRunSystem, IEcsDestroySystem
     {
         private readonly EcsWorld world;
         private readonly DependencyContainer dependencyContainer;
 
         private Queue<ResourceAmountChangedEventComponent> changeResourceEventsQueue;
 
-        public ServerListeningSystem(EcsWorld world, DependencyContainer dependencyContainer)
+        public ServerListenProcessing(EcsWorld world, DependencyContainer dependencyContainer)
         {
             this.world = world;
             this.dependencyContainer = dependencyContainer;
@@ -33,8 +33,8 @@ namespace Systems
             {
                 var changeResourceEventComponent = changeResourceEventsQueue.Dequeue();
                 var entity = world.NewEntity();
-                ref var entityComponent = ref entity.Get<ResourceAmountChangedEventComponent>();
-                entityComponent = changeResourceEventComponent;
+                ref var resourceAmountChangedEventComponent = ref entity.Get<ResourceAmountChangedEventComponent>();
+                resourceAmountChangedEventComponent = changeResourceEventComponent;
             }
         }
 

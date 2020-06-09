@@ -30,14 +30,18 @@ public class GameStartup : MonoBehaviour
                                   ServerStubConfiguration = serverStubConfiguration
                               };
 
-        systems.Add(new InitializeResourcesSystem(dependencyContainer))
-               .Add(new InitializeServerSystem(dependencyContainer))
-               .Add(new UserInputProcessingSystem(configuration, world))
-               .Add(new PlayerMotionSystem(configuration))
-               .Add(new GatherResourceProcessing(world))
-               .Add(new ServerListeningSystem(world, dependencyContainer))
-               .Add(new ResourceSpawnSystem(world, dependencyContainer))
-               .Add(new ResourcesUpdateUISystem(dependencyContainer))
+        systems.Add(new InitializeResourcesProcessing(dependencyContainer))
+               .Add(new InitializeServerProcessing(dependencyContainer))
+               
+               .Add(new UserInputProcessing(configuration, world))
+               
+               .Add(new PlayerMovementProcessing(configuration))
+               .Add(new GatherResourceItemsProcessing(world))
+               .Add(new ResourceSpawnProcessing(world, dependencyContainer))
+               
+               .Add(new ServerListenProcessing(world, dependencyContainer))
+               
+               .Add(new UpdateResourcesUIProcessing(dependencyContainer))
                .OneFrame<ResourceAmountChangedEventComponent>()
                .Inject(dependencyContainer);
     }

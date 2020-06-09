@@ -10,12 +10,12 @@ using UnityEngine;
 
 namespace Systems
 {
-    public class PlayerMotionSystem : IEcsRunSystem
+    public class PlayerMovementProcessing : IEcsRunSystem
     {
         [PublicAPI(PublicAPIComment.DI)] private EcsFilter<PointToMoveComponent> filter;
         private readonly Configuration configuration;
 
-        public PlayerMotionSystem(Configuration configuration)
+        public PlayerMovementProcessing(Configuration configuration)
         {
             this.configuration = configuration;
         }

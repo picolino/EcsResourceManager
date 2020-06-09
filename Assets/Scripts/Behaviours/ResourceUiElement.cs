@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Behaviours
 {
     [CreateAssetMenu(fileName = "New Resource", menuName = "Resource definition", order = 51)]
-    public class ResourceUIElement : ScriptableObject
+    public class ResourceUiElement : ScriptableObject
     {
         [SerializeField] public int uid;
         [SerializeField] public double amount;
