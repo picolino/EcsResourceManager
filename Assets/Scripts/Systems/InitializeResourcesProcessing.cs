@@ -21,7 +21,7 @@ namespace Systems
 
         public void Init()
         {
-            dependencyContainer.ResourceUiDisplayElements = new Dictionary<int, IResourceUiElement>(dependencyContainer.Configuration.resourceUiElements.Length);
+            dependencyContainer.ResourceUiDisplayElements = new Dictionary<int, IResourceUiElementBehaviour>(dependencyContainer.Configuration.resourceUiElements.Length);
 
             for (var i = 0; i < dependencyContainer.Configuration.resourceUiElements.Length; i++)
             {
@@ -33,7 +33,7 @@ namespace Systems
                 var resourceUiElementRectTransform = resourceUiElementGameObject.GetComponent<RectTransform>();
                 resourceUiElementRectTransform.anchoredPosition = new Vector2(i * resourceUiElementRectTransform.rect.width, 0);
 
-                var resourceUiElementBehaviour = resourceUiElementGameObject.GetComponent<ResourceUiElementBehaviour>();
+                var resourceUiElementBehaviour = resourceUiElementGameObject.GetComponent<ResourceUiElementBehaviourBehaviour>();
                 resourceUiElementBehaviour.resourceUi = resourceUiElement;
 
                 dependencyContainer.ResourceUiDisplayElements.Add(resourceUiElementBehaviour.resourceUi.uid, resourceUiElementBehaviour);

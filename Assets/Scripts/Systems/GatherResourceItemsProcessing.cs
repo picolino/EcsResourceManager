@@ -25,14 +25,14 @@ namespace Systems
             {
                 ref var resourceItemComponent = ref filter.Get1(entity);
 
-                if (resourceItemComponent.resourceItem.IsTriggered)
+                if (resourceItemComponent.resourceItemBehaviour.IsTriggered)
                 {
                     var newEntity = world.NewEntity();
                     ref var resourceAmountChangedEventComponent = ref newEntity.Get<ResourceAmountChangedEventComponent>();
                     resourceAmountChangedEventComponent.uid = resourceItemComponent.uid;
                     resourceAmountChangedEventComponent.amount = resourceItemComponent.amount;
                     
-                    resourceItemComponent.resourceItem.Dispose();
+                    resourceItemComponent.resourceItemBehaviour.Dispose();
                     filter.GetEntity(entity).Destroy();
                 }
 

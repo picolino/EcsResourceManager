@@ -2,7 +2,7 @@
 
 namespace Behaviours
 {
-    public interface IResourceItem : IDisposable
+    public interface IResourceItemBehaviour : IDisposable
     {
         bool IsTriggered { get; }
     }
