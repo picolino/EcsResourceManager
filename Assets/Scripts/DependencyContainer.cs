@@ -12,7 +12,7 @@ public class DependencyContainer : IDisposable
     public Random Random { get; set; }
     public IServer Server { get; set; }
     public int[] ResourceIds { get; set; }
-    public Dictionary<int, IResourceDisplayElement> ResourceDisplayElements { get; set; }
+    public Dictionary<int, IResourceUIDisplayElement> ResourceUIDisplayElements { get; set; }
     public Configuration Configuration { get; set; }
     public ServerStubConfiguration ServerStubConfiguration { get; set; }
 

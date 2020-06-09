@@ -1,6 +1,6 @@
 ﻿namespace Behaviours
 {
-    public interface IResourceDisplayElement
+    public interface IResourceUIDisplayElement
     {
         void AddAmount(double amount);
     }

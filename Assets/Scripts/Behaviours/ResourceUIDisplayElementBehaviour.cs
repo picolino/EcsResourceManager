@@ -7,28 +7,28 @@ using UnityEngine.UI;
 
 namespace Behaviours
 {
-    public class ResourceDisplayElementBehaviour : MonoBehaviour, IResourceDisplayElement
+    public class ResourceUIDisplayElementBehaviour : MonoBehaviour, IResourceUIDisplayElement
     {
         [SerializeField] private Text amountDisplayText;
         [SerializeField] private Image iconDisplayImage;
 
-        [SerializeField] public ResourceElement resource;
+        [SerializeField] public ResourceUIElement resourceUi;
 
         private void Start()
         {
-            iconDisplayImage.sprite = resource.image;
+            iconDisplayImage.sprite = resourceUi.image;
             UpdateAmountDisplay();
         }
 
         public void AddAmount(double amount)
         {
-            resource.amount += amount;
+            resourceUi.amount += amount;
             UpdateAmountDisplay();
         }
 
         private void UpdateAmountDisplay()
         {
-            amountDisplayText.text = resource.AmountString;
+            amountDisplayText.text = resourceUi.AmountString;
         }
     }
 }

@@ -9,13 +9,13 @@ using Leopotam.Ecs;
 
 namespace Systems
 {
-    public class ResourcesUpdateSystem : IEcsRunSystem
+    public class ResourcesUpdateUISystem : IEcsRunSystem
     {
         [PublicAPI(PublicAPIComment.DI)] private EcsFilter<ResourceAmountChangedEventComponent> filter;
 
         private readonly DependencyContainer dependencyContainer;
 
-        public ResourcesUpdateSystem(DependencyContainer dependencyContainer)
+        public ResourcesUpdateUISystem(DependencyContainer dependencyContainer)
         {
             this.dependencyContainer = dependencyContainer;
         }
@@ -25,7 +25,7 @@ namespace Systems
             foreach (var entity in filter)
             {
                 ref var changeResourceEvent = ref filter.Get1(entity);
-                var resourceDisplayElement = dependencyContainer.ResourceDisplayElements[changeResourceEvent.uid];
+                var resourceDisplayElement = dependencyContainer.ResourceUIDisplayElements[changeResourceEvent.uid];
                 resourceDisplayElement.AddAmount(changeResourceEvent.amount);
             }
         }

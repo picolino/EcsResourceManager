@@ -21,25 +21,25 @@ namespace Systems
 
         public void Init()
         {
-            dependencyContainer.ResourceDisplayElements = new Dictionary<int, IResourceDisplayElement>(dependencyContainer.Configuration.resourceElements.Length);
+            dependencyContainer.ResourceUIDisplayElements = new Dictionary<int, IResourceUIDisplayElement>(dependencyContainer.Configuration.resourceElements.Length);
 
             for (var i = 0; i < dependencyContainer.Configuration.resourceElements.Length; i++)
             {
                 var resourceElement = dependencyContainer.Configuration.resourceElements[i];
 
-                var resourceDisplayElement = Object.Instantiate(dependencyContainer.Configuration.resourceDisplayElementPrefab,
+                var resourceDisplayElement = Object.Instantiate(dependencyContainer.Configuration.resourceUiDisplayElementPrefab,
                                                                 dependencyContainer.Configuration.resourcePanelCanvas.transform);
 
                 var resourceDisplayElementRectTransform = resourceDisplayElement.GetComponent<RectTransform>();
                 resourceDisplayElementRectTransform.anchoredPosition = new Vector2(i * resourceDisplayElementRectTransform.rect.width, 0);
 
-                var resourceDisplayElementBehaviour = resourceDisplayElement.GetComponent<ResourceDisplayElementBehaviour>();
-                resourceDisplayElementBehaviour.resource = resourceElement;
+                var resourceDisplayElementBehaviour = resourceDisplayElement.GetComponent<ResourceUIDisplayElementBehaviour>();
+                resourceDisplayElementBehaviour.resourceUi = resourceElement;
 
-                dependencyContainer.ResourceDisplayElements.Add(resourceDisplayElementBehaviour.resource.uid, resourceDisplayElementBehaviour);
+                dependencyContainer.ResourceUIDisplayElements.Add(resourceDisplayElementBehaviour.resourceUi.uid, resourceDisplayElementBehaviour);
             }
             
-            dependencyContainer.ResourceIds = dependencyContainer.ResourceDisplayElements.Select(o => o.Key).ToArray();
+            dependencyContainer.ResourceIds = dependencyContainer.ResourceUIDisplayElements.Select(o => o.Key).ToArray();
         }
     }
 }
