@@ -31,11 +31,10 @@ namespace Systems
                     ref var resourceAmountChangedEventComponent = ref newEntity.Get<ResourceAmountChangedEventComponent>();
                     resourceAmountChangedEventComponent.uid = resourceItemComponent.uid;
                     resourceAmountChangedEventComponent.amount = resourceItemComponent.amount;
-                    
+
                     resourceItemComponent.resourceItemBehaviour.Dispose();
                     filter.GetEntity(entity).Destroy();
                 }
-
             }
         }
     }

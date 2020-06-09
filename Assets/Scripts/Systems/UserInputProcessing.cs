@@ -1,15 +1,19 @@
-﻿using Basics;
+﻿#region Usings
+
+using Basics;
 using Components;
 using JetBrains.Annotations;
 using Leopotam.Ecs;
 using UnityEngine;
+
+#endregion
 
 namespace Systems
 {
     public class UserInputProcessing : IEcsRunSystem
     {
         [PublicAPI(PublicAPIComment.DI)] private EcsFilter<PointToMoveComponent> filter;
-        
+
         private readonly Configuration configuration;
         private readonly EcsWorld world;
 
@@ -18,7 +22,7 @@ namespace Systems
             this.configuration = configuration;
             this.world = world;
         }
-        
+
         public void Run()
         {
             if (Input.GetMouseButton(0))
@@ -27,7 +31,7 @@ namespace Systems
                 {
                     filter.GetEntity(entity).Destroy();
                 }
-                
+
                 var movePointEntity = world.NewEntity();
                 ref var component = ref movePointEntity.Get<PointToMoveComponent>();
                 component.position = configuration.mainCamera.ScreenToWorldPoint(Input.mousePosition);

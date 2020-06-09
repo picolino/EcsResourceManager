@@ -1,11 +1,13 @@
-﻿using System;
+﻿#region Usings
+
 using Basics;
 using Behaviours;
 using Components;
 using JetBrains.Annotations;
 using Leopotam.Ecs;
 using UnityEngine;
-using Object = UnityEngine.Object;
+
+#endregion
 
 namespace Systems
 {
@@ -20,7 +22,7 @@ namespace Systems
             this.world = world;
             this.dependencyContainer = dependencyContainer;
         }
-        
+
         public void Run()
         {
             if (filter.IsEmpty())

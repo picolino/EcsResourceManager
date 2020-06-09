@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿#region Usings
+
+using UnityEngine;
+
+#endregion
 
 namespace Components
 {

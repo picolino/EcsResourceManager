@@ -26,8 +26,8 @@ namespace Systems
             {
                 ref var pointToMoveComponent = ref filter.Get1(entity);
 
-                configuration.player.transform.position = Vector2.Lerp(configuration.player.transform.position, 
-                                                                       pointToMoveComponent.position, 
+                configuration.player.transform.position = Vector2.Lerp(configuration.player.transform.position,
+                                                                       pointToMoveComponent.position,
                                                                        Time.deltaTime);
             }
         }

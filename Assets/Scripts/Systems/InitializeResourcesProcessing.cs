@@ -38,7 +38,7 @@ namespace Systems
 
                 dependencyContainer.ResourceUiDisplayElements.Add(resourceUiElementBehaviour.resourceUi.uid, resourceUiElementBehaviour);
             }
-            
+
             dependencyContainer.ResourceIds = dependencyContainer.ResourceUiDisplayElements.Select(o => o.Key).ToArray();
         }
     }

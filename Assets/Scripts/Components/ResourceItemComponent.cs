@@ -1,4 +1,8 @@
-﻿using Behaviours;
+﻿#region Usings
+
+using Behaviours;
+
+#endregion
 
 namespace Components
 {
