@@ -9,13 +9,13 @@ using Leopotam.Ecs;
 
 namespace Systems
 {
-    public class UpdateResourcesUIProcessing : IEcsRunSystem
+    public class UpdateResourcesUiProcessing : IEcsRunSystem
     {
         [PublicAPI(PublicAPIComment.DI)] private EcsFilter<ResourceAmountChangedEventComponent> filter;
 
         private readonly DependencyContainer dependencyContainer;
 
-        public UpdateResourcesUIProcessing(DependencyContainer dependencyContainer)
+        public UpdateResourcesUiProcessing(DependencyContainer dependencyContainer)
         {
             this.dependencyContainer = dependencyContainer;
         }

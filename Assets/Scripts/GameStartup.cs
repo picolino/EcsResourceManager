@@ -37,7 +37,7 @@ public class GameStartup : MonoBehaviour
                .Add(new GatherResourceItemsProcessing(world))
                .Add(new ResourceSpawnProcessing(world, dependencyContainer))
                .Add(new ServerListenProcessing(world, dependencyContainer))
-               .Add(new UpdateResourcesUIProcessing(dependencyContainer))
+               .Add(new UpdateResourcesUiProcessing(dependencyContainer))
                .OneFrame<ResourceAmountChangedEventComponent>()
                .Inject(dependencyContainer);
     }
