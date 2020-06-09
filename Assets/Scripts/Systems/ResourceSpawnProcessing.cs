@@ -13,9 +13,10 @@ namespace Systems
 {
     public class ResourceSpawnProcessing : IEcsRunSystem
     {
+        [PublicAPI(PublicAPIComment.DI)] private EcsFilter<ResourceItemComponent> filter;
+        
         private readonly EcsWorld world;
         private readonly DependencyContainer dependencyContainer;
-        [PublicAPI(PublicAPIComment.DI)] private EcsFilter<ResourceItemComponent> filter;
 
         public ResourceSpawnProcessing(EcsWorld world, DependencyContainer dependencyContainer)
         {

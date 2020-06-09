@@ -11,8 +11,9 @@ namespace Systems
 {
     public class GatherResourceItemsProcessing : IEcsRunSystem
     {
-        private readonly EcsWorld world;
         [PublicAPI(PublicAPIComment.DI)] private EcsFilter<ResourceItemComponent> filter;
+        
+        private readonly EcsWorld world;
 
         public GatherResourceItemsProcessing(EcsWorld world)
         {

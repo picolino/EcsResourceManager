@@ -13,6 +13,7 @@ namespace Systems
     public class PlayerMovementProcessing : IEcsRunSystem
     {
         [PublicAPI(PublicAPIComment.DI)] private EcsFilter<PointToMoveComponent> filter;
+        
         private readonly Configuration configuration;
 
         public PlayerMovementProcessing(Configuration configuration)
