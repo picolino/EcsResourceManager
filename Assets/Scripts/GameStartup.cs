@@ -25,7 +25,7 @@ public class GameStartup : MonoBehaviour
         systems = new EcsSystems(world);
 
         var random = new Random();
-        var resourceIds = configuration.resourceUiElementDefinitions.Select(o => o.uid).ToArray();
+        var resourceIds = configuration.resourceElementDefinitions.Select(o => o.uid).ToArray();
 
         dependencyContainer = new DependencyContainer
                               {

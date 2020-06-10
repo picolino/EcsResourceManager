@@ -11,7 +11,7 @@ namespace Systems
 {
     public class UpdateResourcesProcessing : IEcsRunSystem
     {
-        [PublicAPI(PublicAPIComment.DI)] private EcsFilter<ResourceElement, ResourceUiElementView> resourceEntitiesFilter;
+        [PublicAPI(PublicAPIComment.DI)] private EcsFilter<ResourceElementComponent, ResourceUiElementViewComponent> resourceEntitiesFilter;
         [PublicAPI(PublicAPIComment.DI)] private EcsFilter<ResourceAmountChangedEventComponent> changedEventsFilter;
 
         public void Run()

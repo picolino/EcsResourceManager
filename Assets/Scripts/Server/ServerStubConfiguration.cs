@@ -9,9 +9,9 @@ namespace Server
     public class ServerStubConfiguration : MonoBehaviour
     {
         [Header("Random resource over time change configuration")] 
-        [SerializeField] public int intervalMin = 100;
-        [SerializeField] public int intervalMax = 400;
-        [SerializeField] public int amountMin = -1;
-        [SerializeField] public int amountMax = 2;
+        [SerializeField] public int intervalMin = 1000;
+        [SerializeField] public int intervalMax = 4000;
+        [SerializeField] public int amountMin = -10;
+        [SerializeField] public int amountMax = 11;
     }
 }

@@ -1,9 +1,12 @@
-﻿using Definitions;
-using Leopotam.Ecs;
+﻿#region Usings
+
+using Definitions;
+
+#endregion
 
 namespace Components
 {
-    public struct ResourceElement
+    public struct ResourceElementComponent
     {
         public ResourceElementDefinition resourceElementDefinition;
     }

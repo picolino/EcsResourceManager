@@ -1,7 +1,5 @@
 ﻿#region Usings
 
-using System.Collections.Generic;
-using System.Linq;
 using Behaviours;
 using Components;
 using Leopotam.Ecs;
@@ -24,9 +22,9 @@ namespace Systems
 
         public void Init()
         {
-            for (var i = 0; i < dependencyContainer.Configuration.resourceUiElementDefinitions.Length; i++)
+            for (var i = 0; i < dependencyContainer.Configuration.resourceElementDefinitions.Length; i++)
             {
-                var resourceUiElementDefinition = dependencyContainer.Configuration.resourceUiElementDefinitions[i];
+                var resourceElementDefinition = dependencyContainer.Configuration.resourceElementDefinitions[i];
 
                 var resourceUiElementGameObject = Object.Instantiate(dependencyContainer.Configuration.resourceUiElementPrefab,
                                                                      dependencyContainer.Configuration.resourcePanelCanvas.transform);
@@ -37,15 +35,15 @@ namespace Systems
 
                 var resourceElementEntity = world.NewEntity();
                 
-                ref var resourceElement = ref resourceElementEntity.Get<ResourceElement>();
-                resourceElement.resourceElementDefinition = resourceUiElementDefinition;
+                ref var resourceElementComponent = ref resourceElementEntity.Get<ResourceElementComponent>();
+                resourceElementComponent.resourceElementDefinition = resourceElementDefinition;
                 
-                ref var resourceUiElementViewComponent = ref resourceElementEntity.Get<ResourceUiElementView>();
+                ref var resourceUiElementViewComponent = ref resourceElementEntity.Get<ResourceUiElementViewComponent>();
                 resourceUiElementViewComponent.text = resourceUiElementBehaviour.amountDisplayText;
                 resourceUiElementViewComponent.image = resourceUiElementBehaviour.iconDisplayImage;
                 
-                resourceUiElementViewComponent.image.sprite = resourceUiElementDefinition.image;
-                resourceUiElementViewComponent.text.text = resourceUiElementDefinition.AmountString;
+                resourceUiElementViewComponent.image.sprite = resourceElementDefinition.image;
+                resourceUiElementViewComponent.text.text = resourceElementDefinition.AmountString;
             }
         }
     }
