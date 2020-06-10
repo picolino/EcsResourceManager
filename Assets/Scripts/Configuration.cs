@@ -22,4 +22,17 @@ public class Configuration : MonoBehaviour
     [SerializeField] public GameObject player;
     [SerializeField] public GameObject resourceItemPrefab;
     [SerializeField] public Camera mainCamera;
+
+    [Header("Player settings")] 
+    
+    [SerializeField] public float playerSpeed = 5;
+
+    [Header("Simulation settings")] 
+    
+    [SerializeField] public int resourceSpawnItemAmountMin = -10;
+    [SerializeField] public int resourceSpawnItemAmountMax = 11;
+    [SerializeField] public int resourceSpawnItemPositionXMin = -3;
+    [SerializeField] public int resourceSpawnItemPositionXMax = 4;
+    [SerializeField] public int resourceSpawnItemPositionYMin = -3;
+    [SerializeField] public int resourceSpawnItemPositionYMax = 4;
 }

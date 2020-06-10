@@ -10,17 +10,24 @@ using UnityEngine;
 
 namespace Systems
 {
-    public class UserInputProcessing : IEcsRunSystem
+    public class UserInputProcessing : IEcsRunSystem, IEcsInitSystem
     {
         [PublicAPI(PublicAPIComment.DI)] private EcsFilter<PointToMoveComponent> filter;
 
-        private readonly Configuration configuration;
+        private readonly DependencyContainer dependencyContainer;
         private readonly EcsWorld world;
 
-        public UserInputProcessing(Configuration configuration, EcsWorld world)
+        public UserInputProcessing(EcsWorld world, DependencyContainer dependencyContainer)
         {
-            this.configuration = configuration;
             this.world = world;
+            this.dependencyContainer = dependencyContainer;
+        }
+
+        public void Init()
+        {
+            var movePointEntity = world.NewEntity();
+            ref var component = ref movePointEntity.Get<PointToMoveComponent>();
+            component.position = dependencyContainer.Configuration.player.transform.position;
         }
 
         public void Run()
@@ -29,12 +36,9 @@ namespace Systems
             {
                 foreach (var entity in filter)
                 {
-                    filter.GetEntity(entity).Destroy();
+                    ref var pointToMoveComponent = ref filter.Get1(entity);
+                    pointToMoveComponent.position = dependencyContainer.Configuration.mainCamera.ScreenToWorldPoint(Input.mousePosition);
                 }
-
-                var movePointEntity = world.NewEntity();
-                ref var component = ref movePointEntity.Get<PointToMoveComponent>();
-                component.position = configuration.mainCamera.ScreenToWorldPoint(Input.mousePosition);
             }
         }
     }

@@ -33,10 +33,9 @@ namespace Systems
                     if (resourceElement.resourceElementDefinition.uid == resourceAmountChangedEventComponent.uid)
                     {
                         resourceElement.resourceElementDefinition.amount += resourceAmountChangedEventComponent.amount;
+                        resourceUiElementView.text.text = resourceElement.resourceElementDefinition.AmountString;
                     }
                 }
-                
-                resourceUiElementView.text.text = resourceElement.resourceElementDefinition.AmountString;
             }
         }
     }

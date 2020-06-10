@@ -24,20 +24,23 @@ public class GameStartup : MonoBehaviour
         world = new EcsWorld();
         systems = new EcsSystems(world);
 
+        var random = new Random();
+        var resourceIds = configuration.resourceUiElementDefinitions.Select(o => o.uid).ToArray();
+
         dependencyContainer = new DependencyContainer
                               {
-                                  Random = new Random(),
+                                  Random = random,
                                   Configuration = configuration,
                                   ServerStubConfiguration = serverStubConfiguration,
-                                  ResourceIds = configuration.resourceUiElementDefinitions.Select(o => o.uid).ToArray()
+                                  ResourceIds = resourceIds,
+                                  Server = new ServerStub(serverStubConfiguration, random, resourceIds)
                               };
 
         systems.Add(new InitializeResourcesProcessing(world, dependencyContainer))
-               .Add(new InitializeServerProcessing(dependencyContainer))
-               .Add(new UserInputProcessing(configuration, world))
-               .Add(new PlayerMovementProcessing(configuration))
+               .Add(new UserInputProcessing(world, dependencyContainer))
+               .Add(new PlayerMovementProcessing(dependencyContainer))
                .Add(new ResourceItemSpawnProcessing(world, dependencyContainer))
-               .Add(new ServerInputProcessing(world, dependencyContainer))
+               .Add(new ServerResourceChangedEventProcessing(world, dependencyContainer))
                .Add(new UpdateResourcesProcessing())
                .OneFrame<ResourceAmountChangedEventComponent>()
                .Inject(dependencyContainer)

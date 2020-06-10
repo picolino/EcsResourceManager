@@ -14,11 +14,11 @@ namespace Systems
     {
         [PublicAPI(PublicAPIComment.DI)] private EcsFilter<PointToMoveComponent> filter;
         
-        private readonly Configuration configuration;
+        private readonly DependencyContainer dependencyContainer;
 
-        public PlayerMovementProcessing(Configuration configuration)
+        public PlayerMovementProcessing(DependencyContainer dependencyContainer)
         {
-            this.configuration = configuration;
+            this.dependencyContainer = dependencyContainer;
         }
 
         public void Run()
@@ -27,9 +27,9 @@ namespace Systems
             {
                 ref var pointToMoveComponent = ref filter.Get1(entity);
 
-                configuration.player.transform.position = Vector2.Lerp(configuration.player.transform.position,
-                                                                       pointToMoveComponent.position,
-                                                                       Time.deltaTime);
+                dependencyContainer.Configuration.player.transform.position = Vector2.Lerp(dependencyContainer.Configuration.player.transform.position,
+                                                                                           pointToMoveComponent.position,
+                                                                                           dependencyContainer.Configuration.playerSpeed * Time.deltaTime);
             }
         }
     }

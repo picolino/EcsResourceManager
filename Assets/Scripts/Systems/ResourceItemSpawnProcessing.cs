@@ -28,13 +28,21 @@ namespace Systems
         {
             if (filter.IsEmpty())
             {
+                var resourceItemPosition = new Vector3(dependencyContainer.Random.Next(dependencyContainer.Configuration.resourceSpawnItemPositionXMin,
+                                                                                       dependencyContainer.Configuration.resourceSpawnItemPositionXMax),
+                                                       dependencyContainer.Random.Next(dependencyContainer.Configuration.resourceSpawnItemPositionYMin,
+                                                                                       dependencyContainer.Configuration.resourceSpawnItemPositionYMax),
+                                                       0);
+
                 var resourceItemGameObject = Object.Instantiate(dependencyContainer.Configuration.resourceItemPrefab,
-                                                                new Vector3(dependencyContainer.Random.Next(-3, 4), dependencyContainer.Random.Next(-3, 4), 0),
+                                                                resourceItemPosition,
                                                                 Quaternion.identity);
+                
                 var resourceItemBehaviour = resourceItemGameObject.GetComponent<ResourceItemBehaviour>();
 
                 var uid = dependencyContainer.ResourceIds[dependencyContainer.Random.Next(dependencyContainer.ResourceIds.Length)];
-                var amount = dependencyContainer.Random.Next(-1, 2);
+                var amount = dependencyContainer.Random.Next(dependencyContainer.Configuration.resourceSpawnItemAmountMin,
+                                                             dependencyContainer.Configuration.resourceSpawnItemAmountMax);
                 
                 var entity = world.NewEntity();
                 ref var resourceItemComponent = ref entity.Get<ResourceItemComponent>();
