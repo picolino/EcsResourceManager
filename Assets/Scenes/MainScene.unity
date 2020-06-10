@@ -262,10 +262,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bcc1ea186474ab7ad4394d96719b8fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intervalMin: 100
-  intervalMax: 400
-  amountMin: -1
-  amountMax: 2
+  intervalMin: 1000
+  intervalMax: 4000
+  amountMin: -10
+  amountMax: 11
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

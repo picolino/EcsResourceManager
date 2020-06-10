@@ -36,16 +36,17 @@ namespace Systems
                 resourceUiElementRectTransform.anchoredPosition = new Vector2(i * resourceUiElementRectTransform.rect.width, 0);
                 var resourceUiElementBehaviour = resourceUiElementGameObject.GetComponent<ResourceUiElementBehaviour>();
 
-                var resourceUiElementViewEntity = world.NewEntity();
+                var resourceElementEntity = world.NewEntity();
                 
-                ref var resourceUiElementViewComponent = ref resourceUiElementViewEntity.Get<ResourceUiElementView>();
+                ref var resourceElement = ref resourceElementEntity.Get<ResourceElement>();
+                resourceElement.resourceElementDefinition = resourceUiElementDefinition;
+                
+                ref var resourceUiElementViewComponent = ref resourceElementEntity.Get<ResourceUiElementView>();
                 resourceUiElementViewComponent.text = resourceUiElementBehaviour.amountDisplayText;
                 resourceUiElementViewComponent.image = resourceUiElementBehaviour.iconDisplayImage;
-                resourceUiElementViewComponent.image.sprite = resourceUiElementDefinition.image;
                 
-                ref var resourceAmountChangedEventComponent = ref resourceUiElementViewEntity.Get<ResourceAmountChangedEventComponent>();
-                resourceAmountChangedEventComponent.uid = resourceUiElementDefinition.uid;
-                resourceAmountChangedEventComponent.amount = resourceUiElementDefinition.amount;
+                resourceUiElementViewComponent.image.sprite = resourceUiElementDefinition.image;
+                resourceUiElementViewComponent.text.text = resourceUiElementDefinition.AmountString;
             }
         }
     }

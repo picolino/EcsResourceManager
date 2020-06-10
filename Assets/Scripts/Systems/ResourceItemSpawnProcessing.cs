@@ -11,14 +11,14 @@ using UnityEngine;
 
 namespace Systems
 {
-    public class ResourceSpawnProcessing : IEcsRunSystem
+    public class ResourceItemSpawnProcessing : IEcsRunSystem
     {
         [PublicAPI(PublicAPIComment.DI)] private EcsFilter<ResourceItemComponent> filter;
         
         private readonly EcsWorld world;
         private readonly DependencyContainer dependencyContainer;
 
-        public ResourceSpawnProcessing(EcsWorld world, DependencyContainer dependencyContainer)
+        public ResourceItemSpawnProcessing(EcsWorld world, DependencyContainer dependencyContainer)
         {
             this.world = world;
             this.dependencyContainer = dependencyContainer;

@@ -12,6 +12,7 @@ namespace Systems
     {
         private readonly EcsWorld world;
         private readonly DependencyContainer dependencyContainer;
+        private readonly EcsFilter<ResourceElement> filter;
 
         private Queue<ResourceAmountChangedEventComponent> changeResourceEventsQueue;
 

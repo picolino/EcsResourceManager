@@ -8,7 +8,7 @@ using UnityEngine;
 public class Configuration : MonoBehaviour
 {
     [Header("Resource definitions")] 
-    [SerializeField] public ResourceUiElementDefinition[] resourceUiElementDefinitions;
+    [SerializeField] public ResourceElementDefinition[] resourceUiElementDefinitions;
 
     [Header("Dependencies")] 
     
