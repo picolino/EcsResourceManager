@@ -28,12 +28,14 @@ namespace Systems
 
                 foreach (var changedEventId in changedEventsFilter)
                 {
+                    ref var changedEventEntity = ref changedEventsFilter.GetEntity(changedEventId);
                     ref var resourceAmountChangedEventComponent = ref changedEventsFilter.Get1(changedEventId);
 
                     if (resourceElement.resourceElementDefinition.uid == resourceAmountChangedEventComponent.uid)
                     {
                         resourceElement.resourceElementDefinition.amount += resourceAmountChangedEventComponent.amount;
                         resourceUiElementView.text.text = resourceElement.resourceElementDefinition.AmountString;
+                        changedEventEntity.Destroy();
                     }
                 }
             }

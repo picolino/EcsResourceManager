@@ -6,7 +6,6 @@ using Behaviours;
 using Components;
 using Leopotam.Ecs;
 using UnityEngine;
-using UnityEngine.UI;
 
 #endregion
 

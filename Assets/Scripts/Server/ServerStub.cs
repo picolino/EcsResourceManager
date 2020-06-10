@@ -34,7 +34,7 @@ namespace Server
             timer.Stop();
 
             var selectedResourceUid = resourceIds[random.Next(resourceIds.Length)];
-            ResourceChangedEvent?.Invoke(selectedResourceUid, random.NextDouble() * random.Next(configuration.amountMin, configuration.amountMax));
+            ResourceChangedEvent?.Invoke(selectedResourceUid, random.Next(configuration.amountMin, configuration.amountMax));
 
             SetNewTimerInterval();
             timer.Start();
@@ -42,7 +42,7 @@ namespace Server
 
         private void SetNewTimerInterval()
         {
-            var newInterval = random.NextDouble() * random.Next(configuration.intervalMin, configuration.intervalMax);
+            var newInterval = random.Next(configuration.intervalMin, configuration.intervalMax);
             timer.Interval = newInterval;
         }
 
